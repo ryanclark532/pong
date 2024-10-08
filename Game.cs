@@ -5,19 +5,19 @@ namespace pong;
 
 public class Game
 {
-    private static readonly float speed = 4f;
-    private static readonly int ballHeight = 15;
-    private static readonly int paddleHeight = 100;
+    static float speed = 4f;
+    static readonly int ballHeight = 15;
+    public static readonly int paddleHeight = 100;
 
 
-    private Rectangle player;
-    private Rectangle opponent;
-    private Rectangle ball;
-    private Vector2 velocity;
-    private int playerScore;
-    private int opponentScore;
+    Rectangle player;
+    public Rectangle opponent;
+    Rectangle ball;
+    Vector2 velocity;
+    int playerScore;
+    int opponentScore;
 
-    private int middle;
+    int middle;
 
     public Game()
     {
@@ -117,7 +117,7 @@ public class Game
         }
     }
 
-    private void MoveOpponent()
+    protected virtual void MoveOpponent()
     {
         if (velocity.X > 0) // Ball is moving towards the opponent
         {

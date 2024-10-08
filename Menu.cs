@@ -9,17 +9,17 @@ public class Menu
    private TextInput input;
    Screen currentScreen;
 
-   private Game game;
+   private MultiGame game;
 
    public Menu()
    {
+      this.game = new MultiGame();
       Action s = () => this.currentScreen = Screen.Game;
       Action m = () => this.currentScreen = Screen.Game;
 
       this.single = new Button(50f, 120f, "Single Player", s, false);
       this.multi = new Button(50f, 200f, "Multi Player", m, false);
       this.input = new TextInput(50f, 280f, m);
-      this.game = new Game();
    }
 
    private void drawMenu()
@@ -52,7 +52,7 @@ public class Menu
             if (Raylib.IsKeyDown(KeyboardKey.Q))
             {
                this.currentScreen = Screen.Menu;
-               this.game = new Game();
+               this.game = new MultiGame();
             }
             game.paintFrame();
             break;
